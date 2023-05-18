@@ -1,0 +1,29 @@
+.wrapper {
+  /* display: flex; */
+  /* flex-direction: column; */
+  width: 300px;
+  margin: 15px;
+  padding-block: 20px;
+  border: 1px solid rgb(204, 219, 225);
+  border-radius: 5px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 10px;
+}
+
+.btn-feedback {
+  background-color: white;
+  border: 1px solid skyblue;
+  border-radius: 5px;
+  font-weight: bold;
+}
