@@ -2,6 +2,10 @@ import css from './CollectStatistic.module.css';
 const { Component } = require('react');
 
 class CollectStatistic extends Component {
+  static defaultProps = {
+    step: 1,
+  };
+
   constructor() {
     super();
 
@@ -12,6 +16,12 @@ class CollectStatistic extends Component {
     };
   }
 
+  handleButtonClick = stateKey => {
+    this.setState((state, props) => ({
+      [stateKey]: state[stateKey] + props.step,
+    }));
+  };
+
   render() {
     const { good, neutral, bad } = this.state;
 
@@ -21,17 +31,29 @@ class CollectStatistic extends Component {
 
         <ul className={css['btn-list']}>
           <li>
-            <button className={css['btn-feedback']} type="button">
+            <button
+              className={css['btn-feedback']}
+              type="button"
+              onClick={() => this.handleButtonClick('good')}
+            >
               Good
             </button>
           </li>
           <li>
-            <button className={css['btn-feedback']} type="button">
+            <button
+              className={css['btn-feedback']}
+              type="button"
+              onClick={() => this.handleButtonClick('neutral')}
+            >
               Neutral
             </button>
           </li>
           <li>
-            <button className={css['btn-feedback']} type="button">
+            <button
+              className={css['btn-feedback']}
+              type="button"
+              onClick={() => this.handleButtonClick('bad')}
+            >
               Bad
             </button>
           </li>
