@@ -4,6 +4,7 @@ const { Component } = require('react');
 class CollectStatistic extends Component {
   static defaultProps = {
     step: 1,
+    total: 0,
   };
 
   constructor() {
@@ -17,13 +18,27 @@ class CollectStatistic extends Component {
   }
 
   handleButtonClick = stateKey => {
-    this.setState((state, props) => ({
-      [stateKey]: state[stateKey] + props.step,
-    }));
+    this.setState(
+      (state, props) => ({
+        [stateKey]: state[stateKey] + props.step,
+      }),
+
+      () => {
+        this.countTotalFeedback();
+      }
+    );
   };
 
-  render() {
+  countTotalFeedback = () => {
     const { good, neutral, bad } = this.state;
+    const total = good + neutral + bad;
+    this.setState({ total });
+  };
+
+  // countPositiveFeedbackPercentage()
+
+  render() {
+    const { good, neutral, bad, total } = this.state;
 
     return (
       <div className={css.wrapper}>
@@ -68,7 +83,10 @@ class CollectStatistic extends Component {
             <p>Neutral: {neutral}</p>
           </li>
           <li>
-            <p>Bas: {bad}</p>
+            <p>Bad: {bad}</p>
+          </li>
+          <li>
+            <p>Total: {total}</p>
           </li>
         </ul>
       </div>
