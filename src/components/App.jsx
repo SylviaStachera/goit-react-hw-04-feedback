@@ -20,11 +20,6 @@ export class App extends Component {
   }
 
   handleButtonClick = stateKey => {
-    // if(state[stateKey] === 0){
-    //   return true
-    // }else{
-    //   return false
-    // }
     this.setState(
       (state, props) => ({
         [stateKey]: state[stateKey] + props.step,
