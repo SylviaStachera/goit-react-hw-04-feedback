@@ -1,0 +1,13 @@
+.wrapper {
+  width: 300px;
+  margin-top: 15px;
+  margin-left: 15px;
+  padding: 20px 15px;
+  border: 1px solid rgb(204, 219, 225);
+  border-radius: 5px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+}
