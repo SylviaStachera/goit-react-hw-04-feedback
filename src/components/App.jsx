@@ -1,12 +1,18 @@
+import PropTypes from 'prop-types';
 import Section from './Section/Section';
 import Notification from './Notification/Notification';
 import FeedbackOptions from 'components/FeedbackOptions/FeedbackOptions';
 import Statistics from 'components/Statistics/Statistics';
+
 import { Component } from 'react';
 
 export class App extends Component {
   static defaultProps = {
     step: 1,
+  };
+
+  static propTypes = {
+    step: PropTypes.number,
   };
 
   constructor() {
@@ -40,7 +46,7 @@ export class App extends Component {
 
   countPositiveFeedbackPercentage = total => {
     const { good } = this.state;
-    const positivePercentage = ((good / total) * 100).toFixed(0);
+    const positivePercentage = Number(((good / total) * 100).toFixed(0));
     this.setState({ positivePercentage });
   };
 

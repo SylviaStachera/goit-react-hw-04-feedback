@@ -1,9 +1,16 @@
+import PropTypes from 'prop-types';
 import css from './Section.module.css';
+
 const { Component } = require('react');
 
 class Section extends Component {
   static defaultProps = {
     title: '',
+  };
+
+  static propTypes = {
+    title: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired,
   };
 
   render() {
