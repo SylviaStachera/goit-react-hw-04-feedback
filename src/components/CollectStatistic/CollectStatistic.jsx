@@ -33,12 +33,17 @@ class CollectStatistic extends Component {
     const { good, neutral, bad } = this.state;
     const total = good + neutral + bad;
     this.setState({ total });
+    this.countPositiveFeedbackPercentage(total);
   };
 
-  // countPositiveFeedbackPercentage()
+  countPositiveFeedbackPercentage = total => {
+    const { good } = this.state;
+    const positiveFeedback = ((good / total) * 100).toFixed(0);
+    this.setState({ positiveFeedback });
+  };
 
   render() {
-    const { good, neutral, bad, total } = this.state;
+    const { good, neutral, bad, total, positiveFeedback } = this.state;
 
     return (
       <div className={css.wrapper}>
@@ -87,6 +92,9 @@ class CollectStatistic extends Component {
           </li>
           <li>
             <p>Total: {total}</p>
+          </li>
+          <li>
+            <p>Positive feedback: {positiveFeedback}%</p>
           </li>
         </ul>
       </div>
