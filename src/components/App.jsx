@@ -53,11 +53,7 @@ export class App extends Component {
   noFeedback = () => {
     const { good, neutral, bad } = this.state;
 
-    if (good === 0 && neutral === 0 && bad === 0) {
-      return true;
-    } else {
-      return false;
-    }
+    return good === 0 && neutral === 0 && bad === 0;
   };
 
   render() {
